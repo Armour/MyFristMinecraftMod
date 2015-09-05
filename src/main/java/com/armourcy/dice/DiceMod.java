@@ -33,7 +33,7 @@ public class DiceMod {
     public void init(FMLInitializationEvent e) {
         System.out.println("DiceMod.init()"); //output to console.
 
-        dicetab = new DiceTab("customTab");
+        dicetab = new DiceTab("dicetab");
 
         diceitem = new DiceItem();
         diceitem.setUnlocalizedName("diceitem");

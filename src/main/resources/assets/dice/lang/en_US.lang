@@ -1,3 +1,3 @@
-tile.diceBlock.name=Dice Block
-item.diceItem.name=Dice Item
-itemGroup.diceTab=Dice Tab
+tile.diceblock.name=Dice Block
+item.diceitem.name=Dice Item
+itemGroup.dicetab=Dice Tab
