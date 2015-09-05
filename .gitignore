@@ -46,4 +46,19 @@ crashlytics.properties
 crashlytics-build.properties
 
 # Eclipse
-eclipse/*
+/LICENSE-fml.txt
+/MinecraftForge-Credits.txt
+/MinecraftForge-License.txt
+/CREDITS-fml.txt
+/forge-1.7.2*
+/build
+/common
+/eclipse/*
+/.gradle
+/bin/*
+.classpath
+.project
+.settings/*
+src/api/resources/*
+src/api/java/hacker/
+.checkstyle
