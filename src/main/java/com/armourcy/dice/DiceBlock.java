@@ -4,8 +4,6 @@
 
 package com.armourcy.dice;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -39,11 +37,6 @@ public class DiceBlock extends Block {
         return true;
     }
     */
-
-    @Override
-    public int getRenderType() {
-        return 3;
-    }
 
     @Override
     public int quantityDropped(Random random) {

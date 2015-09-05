@@ -1,7 +1,7 @@
 [
 {
   "modid": "dice",
-  "name": "Dice",
+  "name": "Dice Blcok",
   "description": "Armour's First Dice Mod",
   "version": "${version}",
   "mcversion": "${mcversion}",

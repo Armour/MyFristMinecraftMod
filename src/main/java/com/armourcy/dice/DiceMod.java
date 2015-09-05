@@ -12,15 +12,17 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 
 @Mod(modid="DiceMod.MODID", name = "DiceMod.NAME", version="DiceMod.VERSION")
 public class DiceMod {
     public static final String MODID = "dice";
-    public static final String VERSION = "version";
+    public static final String VERSION = "1.0";
     public static final String NAME = "Dice Blcok";
 
-    public static final Block diceblock = new DiceBlock(Material.rock);
+    public static DiceBlock diceblock;
+    public static DiceItem diceitem;
+    public static DiceTab dicetab;
+    public static DiceWorldGenerator diceWorldGen;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent e) {
@@ -30,11 +32,28 @@ public class DiceMod {
     @EventHandler
     public void init(FMLInitializationEvent e) {
         System.out.println("DiceMod.init()"); //output to console.
+
+        dicetab = new DiceTab("customTab");
+
+        diceitem = new DiceItem();
+        diceitem.setUnlocalizedName("diceitem");
+        diceitem.setCreativeTab(dicetab);
+        diceitem.setTextureName(MODID + ":diceItem"); //file: resources\assets\<MODID>\textures\blocks\diceItem.png
+        GameRegistry.registerItem(diceitem, "diceitem");
+
+        diceblock = new DiceBlock(Material.rock);
         diceblock.setBlockName("diceblock");
         diceblock.setStepSound(Block.soundTypeStone);
-        diceblock.setCreativeTab(CreativeTabs.tabBlock);
+        diceblock.setCreativeTab(dicetab);
         diceblock.setBlockTextureName(MODID + ":diceBlock"); //file: resources\assets\<MODID>\textures\blocks\diceBlock.png
+        diceblock.setItemDropped(diceitem);
         GameRegistry.registerBlock(diceblock, "diceblock");
+
+        dicetab.setTabItemIcon(diceitem);
+
+        diceWorldGen = new DiceWorldGenerator(diceblock, 1000, 12);
+        GameRegistry.registerWorldGenerator(diceWorldGen, 1);
+
     }
 
     @EventHandler
