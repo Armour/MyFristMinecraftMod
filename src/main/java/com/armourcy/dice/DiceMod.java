@@ -12,6 +12,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 @Mod(modid="DiceMod.MODID", name = "DiceMod.NAME", version="DiceMod.VERSION")
 public class DiceMod {
@@ -39,12 +41,16 @@ public class DiceMod {
         diceitem.setUnlocalizedName("diceitem");
         diceitem.setCreativeTab(dicetab);
         diceitem.setTextureName(MODID + ":diceItem"); //file: resources\assets\<MODID>\textures\blocks\diceItem.png
+        diceitem.setMaxStackSize(10);
         GameRegistry.registerItem(diceitem, "diceitem");
 
         diceblock = new DiceBlock(Material.rock);
         diceblock.setBlockName("diceblock");
         diceblock.setStepSound(Block.soundTypeStone);
         diceblock.setCreativeTab(dicetab);
+        diceblock.setHardness(20.0F);
+        diceblock.setHarvestLevel("pickaxe", 2);
+        diceblock.setResistance(1000.0F);
         diceblock.setBlockTextureName(MODID + ":diceBlock"); //file: resources\assets\<MODID>\textures\blocks\diceBlock.png
         diceblock.setItemDropped(diceitem);
         GameRegistry.registerBlock(diceblock, "diceblock");
@@ -54,6 +60,9 @@ public class DiceMod {
         diceWorldGen = new DiceWorldGenerator(diceblock, 1000, 12);
         GameRegistry.registerWorldGenerator(diceWorldGen, 1);
 
+        GameRegistry.addShapedRecipe(new ItemStack(diceblock), "XXX", "X X", "XXX", 'X', Item.getItemFromBlock(Block.getBlockFromName("cobblestone")));
+        GameRegistry.addShapelessRecipe(new ItemStack(diceitem, 3), diceblock);
+        GameRegistry.addSmelting(diceblock, new ItemStack(diceitem, 3), 1.0F);
     }
 
     @EventHandler
