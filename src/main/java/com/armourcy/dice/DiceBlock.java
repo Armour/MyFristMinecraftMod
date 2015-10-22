@@ -1,15 +1,14 @@
-/**
- * Created by armour on 9/5/15.
- */
-
 package com.armourcy.dice;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
-
 import java.util.Random;
+
+/**
+ * Created by armour on 9/5/15.
+ */
 
 public class DiceBlock extends Block {
 

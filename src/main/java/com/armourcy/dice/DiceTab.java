@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 /**
  * Created by armour on 9/5/15.
  */
+
 public class DiceTab extends CreativeTabs {
     private Item icon;
 

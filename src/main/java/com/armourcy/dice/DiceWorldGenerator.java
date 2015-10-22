@@ -11,6 +11,7 @@ import java.util.Random;
 /**
  * Created by armour on 9/5/15.
  */
+
 public class DiceWorldGenerator implements IWorldGenerator {
 
     public final Block genBlock;
