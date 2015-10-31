@@ -8,9 +8,9 @@ import net.minecraftforge.event.world.BlockEvent;
  * Created by armour on 9/9/15.
  */
 
-public class DiceExplosion {
+public class DiceBreakExplosion {
     @SubscribeEvent
-    public void explosion(BlockEvent.BreakEvent event) {
+    public void breakExplosion(BlockEvent.BreakEvent event) {
         if (event.block != Block.getBlockFromName("diceblock")) {
             return;
         }

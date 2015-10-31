@@ -25,8 +25,8 @@ public class DiceWorldGenerator implements IWorldGenerator {
         this.abundance = abundance;
     }
 
-    public void generate(Random random, int chunkX, int chunkZ, World world , IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-        switch(world.provider.dimensionId) {
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+        switch (world.provider.dimensionId) {
             case -1:
                 generateInNether(world, random, chunkX * 16, chunkZ * 16);
                 break;
@@ -56,5 +56,4 @@ public class DiceWorldGenerator implements IWorldGenerator {
             worldGen.generate(world, random, x, y, z);
         }
     }
-
 }

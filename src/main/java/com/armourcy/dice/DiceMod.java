@@ -5,20 +5,18 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.eventhandler.EventBus;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.minecart.MinecartCollisionEvent;
 
 /**
  * Created by armour on 9/5/15.
  */
 
-@Mod(modid="DiceMod.MODID", name = "DiceMod.NAME", version="DiceMod.VERSION")
+@Mod(modid = "DiceMod.MODID", name = "DiceMod.NAME", version = "DiceMod.VERSION")
 public class DiceMod {
     public static final String MODID = "dice";
     public static final String VERSION = "1.0";
@@ -67,7 +65,8 @@ public class DiceMod {
         GameRegistry.addShapelessRecipe(new ItemStack(diceitem, 3), diceblock);
         GameRegistry.addSmelting(diceblock, new ItemStack(diceitem, 3), 1.0F);
 
-        MinecraftForge.EVENT_BUS.register(new DiceExplosion());
+        MinecraftForge.EVENT_BUS.register(new DiceBreakExplosion());
+        MinecraftForge.EVENT_BUS.register(new DiceBreakMessage());
     }
 
     @EventHandler

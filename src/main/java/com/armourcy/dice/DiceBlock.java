@@ -54,12 +54,11 @@ public class DiceBlock extends Block {
     @Override
     public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata) {
         world.playSound
-                ( x, y, z //block's coordinates.
-                        //file: resources\assets\<MODID>\sounds\diceDestory.ogg
-                        , DiceMod.MODID+":diceDestory"
-                        , 0.5F //half volume.
-                        , 1.0F //normal pitch.
-                        , true //default
+                ( x, y, z,                          //block's coordinates.
+                  DiceMod.MODID+":diceDestory",     //file: resources\assets\<MODID>\sounds\diceDestory.ogg
+                  0.5F,                             //half volume.
+                  1.0F,                             //normal pitch.
+                  true                              //default
                 );
     }
 }
