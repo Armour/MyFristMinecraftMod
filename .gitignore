@@ -46,16 +46,16 @@ crashlytics.properties
 crashlytics-build.properties
 
 # Eclipse
-/LICENSE-fml.txt
-/MinecraftForge-Credits.txt
-/MinecraftForge-License.txt
-/CREDITS-fml.txt
-/forge-1.7.2*
-/build
-/common
-/eclipse/*
-/.gradle
-/bin/*
+LICENSE-fml.txt
+MinecraftForge-Credits.txt
+MinecraftForge-License.txt
+CREDITS-fml.txt
+forge-1.7.2*
+build
+common
+eclipse/*
+.gradle
+bin/*
 .classpath
 .project
 .settings/*
