@@ -69,6 +69,7 @@ public class DiceMod {
         MinecraftForge.EVENT_BUS.register(new DiceBreakMessage());
         MinecraftForge.EVENT_BUS.register(new DiceChickenDrop());
         MinecraftForge.EVENT_BUS.register(new ArmoredZombie());
+        MinecraftForge.EVENT_BUS.register(new SuperJump());
     }
 
     @EventHandler

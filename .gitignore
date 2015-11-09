@@ -32,7 +32,7 @@
 ## Plugin-specific files:
 
 # IntelliJ
-/out/
+out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -54,7 +54,7 @@ forge-1.7.2*
 build
 common
 eclipse/*
-.gradle
+.gradle/
 bin/*
 .classpath
 .project

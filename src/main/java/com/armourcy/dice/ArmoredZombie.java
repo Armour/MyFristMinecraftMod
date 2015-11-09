@@ -1,5 +1,6 @@
 package com.armourcy.dice;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -12,6 +13,7 @@ import java.util.Random;
  */
 
 public class ArmoredZombie {
+    @SubscribeEvent
     public void armouredZombie(EntityJoinWorldEvent event) {
         if (!(event.entity instanceof EntityZombie)) {
             return;
