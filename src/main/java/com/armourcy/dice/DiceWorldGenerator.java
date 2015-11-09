@@ -4,7 +4,9 @@ import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenTrees;
 
 import java.util.Random;
 
@@ -48,12 +50,14 @@ public class DiceWorldGenerator implements IWorldGenerator {
     }
 
     private void generateInOverworld(World world, Random random, int chunkX , int chunkZ) {
-        for(int i = 0; i < frequency; i++) {
+        for (int i = 0; i < frequency; i++) {
             int x = chunkX + random.nextInt(16);
             int y = random.nextInt(64); //max height.
             int z = chunkZ + random.nextInt(16);
-            WorldGenMinable worldGen = new WorldGenMinable(genBlock, abundance);
-            worldGen.generate(world, random, x, y, z);
+            WorldGenMinable worldGenMine = new WorldGenMinable(genBlock, abundance);
+            worldGenMine.generate(world, random, x, y, z);
+            WorldGenTrees worldGenTree = new WorldGenTrees(true);
+            worldGenTree.generate(world, random, x, y, z);
         }
     }
 }
