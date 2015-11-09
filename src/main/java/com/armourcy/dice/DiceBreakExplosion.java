@@ -11,7 +11,7 @@ import net.minecraftforge.event.world.BlockEvent;
 public class DiceBreakExplosion {
     @SubscribeEvent
     public void breakExplosion(BlockEvent.BreakEvent event) {
-        if (event.block != Block.getBlockFromName("diceblock")) {
+        if (event.block != Block.getBlockFromName(DiceMod.MODID + ":diceblock")) {
             return;
         }
         event.world.createExplosion(null, event.x, event.y, event.z, 3, true);

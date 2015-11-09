@@ -16,11 +16,11 @@ import net.minecraftforge.common.MinecraftForge;
  * Created by armour on 9/5/15.
  */
 
-@Mod(modid = "DiceMod.MODID", name = "DiceMod.NAME", version = "DiceMod.VERSION")
+@Mod(modid = DiceMod.MODID, name = DiceMod.NAME, version = DiceMod.VERSION)
 public class DiceMod {
     public static final String MODID = "dice";
     public static final String VERSION = "1.0";
-    public static final String NAME = "Dice Blcok";
+    public static final String NAME = "Dice Block";
 
     public static DiceBlock diceblock;
     public static DiceItem diceitem;

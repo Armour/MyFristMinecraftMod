@@ -13,7 +13,7 @@ import net.minecraftforge.event.world.BlockEvent;
 public class DiceBreakMessage {
     @SubscribeEvent
     public void breakMessage(BlockEvent.BreakEvent event) {
-        if (event.block != Block.getBlockFromName("diceblock")) {
+        if (event.block != Block.getBlockFromName(DiceMod.MODID + ":diceblock")) {
             return;
         }
         event.getPlayer().addChatMessage(new ChatComponentText(EnumChatFormatting.GOLD + "You broke it! OH NO!!!"));
