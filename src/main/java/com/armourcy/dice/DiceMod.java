@@ -1,5 +1,6 @@
 package com.armourcy.dice;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -70,6 +71,9 @@ public class DiceMod {
         MinecraftForge.EVENT_BUS.register(new DiceChickenDrop());
         MinecraftForge.EVENT_BUS.register(new ArmoredZombie());
         MinecraftForge.EVENT_BUS.register(new SuperJump());
+        MinecraftForge.EVENT_BUS.register(new SpiderMan());
+
+        FMLCommonHandler.instance().bus().register(new SuperJump());
     }
 
     @EventHandler
