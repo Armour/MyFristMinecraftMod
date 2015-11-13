@@ -1,2 +1,2 @@
 # MyFristMinecraftMod
-Just want to make a simple dice example in minecraft
+A simple dice mod with many others miscellaneous mods in minecraft
