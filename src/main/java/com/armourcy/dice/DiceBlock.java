@@ -23,20 +23,6 @@ public class DiceBlock extends Block {
         return true;
     }
 
-    /*
-    @SideOnly(Side.CLIENT)
-    public EumWorldBlockLayer getBlockLayer() {
-        return EumWorldBlcokLayer.SOLID;
-    }
-    */
-
-    /*
-    @Override
-    public boolean isFullCube() {
-        return true;
-    }
-    */
-
     @Override
     public int quantityDropped(Random random) {
         return super.quantityDropped(random);
