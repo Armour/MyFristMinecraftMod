@@ -2,7 +2,14 @@ package com.armourcy.dice;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntitySnowball;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import java.util.Random;
 
@@ -25,7 +32,7 @@ public class DiceBlock extends Block {
 
     @Override
     public int quantityDropped(Random random) {
-        return super.quantityDropped(random);
+        return random.nextInt(3) + 2;
     }
 
     @Override
@@ -35,6 +42,38 @@ public class DiceBlock extends Block {
 
     public void setItemDropped(Item item) {
         drop = item;
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float dx, float dy, float dz) {
+        if (world.getBlock(x, y+3, z) == Blocks.air) {
+            EntitySheep sheep = new EntitySheep(world);
+            sheep.setLocationAndAngles(x, y+3, z, 0, 0);
+            world.spawnEntityInWorld(sheep);
+        }
+        return false;
+    }
+
+    @Override
+    public void onBlockAdded(World world, int x, int y, int z) {
+        Block block = world.getBlock(x, y-1, z);
+        world.setBlock(x, y, z, block);
+        //EntityLightningBolt lightningBolt = new EntityLightningBolt(world, x, y, z);
+        //world.addWeatherEffect(lightningBolt);
+    }
+
+    @Override
+    public void onBlockDestroyedByExplosion(World world, int x, int y, int z, Explosion explosion) {
+        EntitySnowball snowball = new EntitySnowball(world, x + 0.5, y + 1.5, z + 0.5);
+        snowball.motionY = 0.1;
+        world.spawnEntityInWorld(snowball);
+    }
+
+    @Override
+    public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+        if (entity instanceof EntitySheep) {
+            entity.setFire(500);
+        }
     }
 
     @Override

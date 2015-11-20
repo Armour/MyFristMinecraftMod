@@ -41,7 +41,7 @@ public class DiceMod {
         diceitem.setUnlocalizedName("diceitem");
         diceitem.setCreativeTab(dicetab);
         diceitem.setTextureName(MODID + ":diceItem"); //file: resources\assets\<MODID>\textures\blocks\diceItem.png
-        diceitem.setMaxStackSize(10);
+        diceitem.setMaxStackSize(99);
         GameRegistry.registerItem(diceitem, "diceitem");
 
         diceblock = new DiceBlock(Material.rock);
@@ -49,10 +49,11 @@ public class DiceMod {
         diceblock.setStepSound(Block.soundTypeStone);
         diceblock.setCreativeTab(dicetab);
         diceblock.setHardness(20.0F);
-        diceblock.setHarvestLevel("pickaxe", 2);
-        diceblock.setResistance(1000.0F);
+        diceblock.setHarvestLevel("pickaxe", 1);
+        diceblock.setResistance(30.0F);
         diceblock.setBlockTextureName(MODID + ":diceBlock"); //file: resources\assets\<MODID>\textures\blocks\diceBlock.png
         diceblock.setItemDropped(diceitem);
+        diceblock.setLightLevel(1.0f);
         GameRegistry.registerBlock(diceblock, "diceblock");
 
         dicetab.setTabItemIcon(diceitem);
@@ -61,7 +62,7 @@ public class DiceMod {
         GameRegistry.registerWorldGenerator(diceWorldGen, 1);
 
         GameRegistry.addShapedRecipe(new ItemStack(diceblock), "XXX", "X X", "XXX", 'X', Item.getItemFromBlock(Block.getBlockFromName("cobblestone")));
-        GameRegistry.addShapelessRecipe(new ItemStack(diceitem, 3), diceblock);
+        GameRegistry.addShapelessRecipe(new ItemStack(diceitem, 3), new ItemStack(diceblock));
         GameRegistry.addSmelting(diceblock, new ItemStack(diceitem, 3), 1.0F);
 
         MinecraftForge.EVENT_BUS.register(new DiceBreakExplosion());
@@ -70,6 +71,7 @@ public class DiceMod {
         MinecraftForge.EVENT_BUS.register(new ArmoredZombie());
         MinecraftForge.EVENT_BUS.register(new SuperJump());
         MinecraftForge.EVENT_BUS.register(new SpiderMan());
+        MinecraftForge.EVENT_BUS.register(new BlockFiller());
 
         FMLCommonHandler.instance().bus().register(new SuperJump());
     }
@@ -77,6 +79,7 @@ public class DiceMod {
     @EventHandler
     public void registerCommands(FMLServerStartingEvent event) {
         event.registerServerCommand(new FlamingPigs());
+        event.registerServerCommand(new BlockFillerCmd());
     }
 
     @EventHandler

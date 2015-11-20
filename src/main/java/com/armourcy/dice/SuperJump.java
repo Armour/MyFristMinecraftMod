@@ -21,7 +21,7 @@ public class SuperJump {
 
         Random random = new Random();
 
-        event.entity.motionY *= ((random.nextDouble() + 0.5f) * 2.0f);  // random from 1x to 3x
+        event.entity.motionY *= (random.nextDouble() + 1.0f);  // random from 1x to 2x
     }
 
     @SubscribeEvent

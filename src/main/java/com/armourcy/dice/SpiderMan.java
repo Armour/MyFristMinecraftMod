@@ -17,6 +17,6 @@ public class SpiderMan {
         if (!(event.entity.isCollidedHorizontally)) {
             return;
         }
-        event.entity.motionY += 0.5;
+        event.entity.motionY += 0.1;
     }
 }
