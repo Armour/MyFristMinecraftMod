@@ -36,29 +36,29 @@ public class DiceMod {
         System.out.println("DiceMod.init()"); //output to console.
 
         dicetab = new DiceTab("dicetab");
-
         diceitem = new DiceItem();
+        diceblock = new DiceBlock(Material.rock);
+        diceWorldGen = new DiceWorldGenerator(diceblock, 1000, 12);
+
         diceitem.setUnlocalizedName("diceitem");
         diceitem.setCreativeTab(dicetab);
-        diceitem.setTextureName(MODID + ":diceItem"); //file: resources\assets\<MODID>\textures\blocks\diceItem.png
         diceitem.setMaxStackSize(99);
-        GameRegistry.registerItem(diceitem, "diceitem");
+        diceitem.setTextureName(DiceMod.MODID + ":" + "diceitem");
 
-        diceblock = new DiceBlock(Material.rock);
         diceblock.setBlockName("diceblock");
-        diceblock.setStepSound(Block.soundTypeStone);
         diceblock.setCreativeTab(dicetab);
-        diceblock.setHardness(20.0F);
+        diceblock.setHardness(10.0F);
         diceblock.setHarvestLevel("pickaxe", 1);
-        diceblock.setResistance(30.0F);
-        diceblock.setBlockTextureName(MODID + ":diceBlock"); //file: resources\assets\<MODID>\textures\blocks\diceBlock.png
+        diceblock.setResistance(6.0F);
+        diceblock.setStepSound(Block.soundTypeStone);
         diceblock.setItemDropped(diceitem);
         diceblock.setLightLevel(1.0f);
-        GameRegistry.registerBlock(diceblock, "diceblock");
+        diceblock.setBlockTextureName(DiceMod.MODID + ":" + "diceblock2");
 
         dicetab.setTabItemIcon(diceitem);
 
-        diceWorldGen = new DiceWorldGenerator(diceblock, 1000, 12);
+        GameRegistry.registerItem(diceitem, "diceitem");
+        GameRegistry.registerBlock(diceblock, "diceblock");
         GameRegistry.registerWorldGenerator(diceWorldGen, 1);
 
         GameRegistry.addShapedRecipe(new ItemStack(diceblock), "XXX", "X X", "XXX", 'X', Item.getItemFromBlock(Block.getBlockFromName("cobblestone")));

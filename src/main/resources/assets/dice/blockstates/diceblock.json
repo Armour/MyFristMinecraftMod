@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": [
+      {"model": "dice:diceblock"},
+      {"model": "dice:diceblock", "y": 90},
+      {"model": "dice:diceblock", "y": 180},
+      {"model": "dice:diceblock", "y": 270}
+    ]
+  }
+}
