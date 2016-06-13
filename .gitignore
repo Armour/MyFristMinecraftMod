@@ -62,3 +62,4 @@ bin/*
 src/api/resources/*
 src/api/java/hacker/
 .checkstyle
+.DS_Store
